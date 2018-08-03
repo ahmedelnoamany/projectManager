@@ -1,0 +1,79 @@
+.header {
+  height: 10vh;
+  background-color: $color-primary-dark;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__header-icon {
+    height: 3rem;
+    width: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    fill: $color-white;
+  }
+
+  &__header-link {
+    cursor: pointer;
+  }
+  &__main-heading {
+    color: $color-white;
+    font-weight: 100;
+    font-family: Arial;
+    margin-left: 2rem;
+  }
+}
+
+.header-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search {
+  position: relative;
+  &__main-container {
+    height: 30rem;
+    width: 25rem;
+    margin-top: 2rem;
+    margin-right: 10rem;
+    background-color: #7C8DB2;
+    border-radius: 1rem;
+
+    position: fixed;
+    right: -5rem;
+  }
+  &__form-group {
+    display: flex;
+    width: 100%;
+
+    &--input {
+      flex: 0.75;
+      border: none;
+
+      font-size: 1.4rem;
+      &:focus {
+        outline: none;
+      }
+      
+    }
+    &--submit-btn {
+      flex: 0.25;
+      border: none;
+
+      cursor: pointer;
+      background-color: $color-primary-light;
+      &:focus {
+        outline: none;
+      }
+      
+    }
+  }
+}
+
+.notification-manager {
+
+
+}
