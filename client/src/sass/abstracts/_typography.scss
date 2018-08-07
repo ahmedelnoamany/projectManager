@@ -1,0 +1,18 @@
+.heading{
+
+  &-3{
+    font-size: 2rem;
+    font-family: Arial;
+    font-weight: 200;
+    color: $color-white;
+    margin-bottom: 1rem;
+    
+    &--white {
+      color: $color-white;
+    }
+    &--dark {
+      color: $color-primary-dark;
+    }
+  }
+  
+}

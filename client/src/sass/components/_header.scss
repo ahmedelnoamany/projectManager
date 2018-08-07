@@ -25,7 +25,6 @@
     margin-left: 2rem;
   }
 }
-
 .header-options {
   display: flex;
   flex-direction: row;
@@ -37,7 +36,7 @@
   &__main-container {
     height: 30rem;
     width: 25rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-right: 10rem;
     background-color: #7C8DB2;
     border-radius: 1rem;
@@ -74,6 +73,35 @@
 }
 
 .notification-manager {
+  position: relative;
+
+  &__main-container {
+    height: 30rem;
+    width: 25rem;
+    margin-top: 3rem;
+    margin-right: 10rem;
+    background-color: #7C8DB2;
+    border-radius: 1rem;
+
+    position: fixed;
+    right: -7rem;
+  }
 
 
+}
+
+.account-options {
+  position: relative;
+
+  &__main-container {
+    height: 30rem;
+    width: 25rem;
+    margin-top: 3rem;
+    margin-right: 10rem;
+    background-color: #7C8DB2;
+    border-radius: 1rem;
+
+    position: fixed;
+    right: -9rem;
+  }
 }

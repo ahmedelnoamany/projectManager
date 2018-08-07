@@ -11,6 +11,17 @@ html {
 body {
   box-sizing: border-box; }
 
+.heading-3 {
+  font-size: 2rem;
+  font-family: Arial;
+  font-weight: 200;
+  color: #fff;
+  margin-bottom: 1rem; }
+  .heading-3--white {
+    color: #fff; }
+  .heading-3--dark {
+    color: #6987C9; }
+
 .header {
   height: 10vh;
   background-color: #6987C9;
@@ -42,7 +53,7 @@ body {
   .search__main-container {
     height: 30rem;
     width: 25rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-right: 10rem;
     background-color: #7C8DB2;
     border-radius: 1rem;
@@ -65,6 +76,30 @@ body {
       .search__form-group--submit-btn:focus {
         outline: none; }
 
+.notification-manager {
+  position: relative; }
+  .notification-manager__main-container {
+    height: 30rem;
+    width: 25rem;
+    margin-top: 3rem;
+    margin-right: 10rem;
+    background-color: #7C8DB2;
+    border-radius: 1rem;
+    position: fixed;
+    right: -7rem; }
+
+.account-options {
+  position: relative; }
+  .account-options__main-container {
+    height: 30rem;
+    width: 25rem;
+    margin-top: 3rem;
+    margin-right: 10rem;
+    background-color: #7C8DB2;
+    border-radius: 1rem;
+    position: fixed;
+    right: -9rem; }
+
 .menu-card {
   margin-top: 3rem;
   display: flex;
@@ -72,3 +107,110 @@ body {
   justify-content: space-evenly;
   height: 6rem;
   transition: all .2s; }
+
+.day-card {
+  width: 26rem;
+  height: 26rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+  .day-card--active {
+    background-color: #fff;
+    border: .5rem solid;
+    border-color: #C5D5EA; }
+  .day-card--normal {
+    background-color: #C5D5EA; }
+  .day-card__todo {
+    width: 98%;
+    height: 5rem;
+    background-color: #fff;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: row; }
+  .day-card__options {
+    width: 24%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: flex-end;
+    margin-top: .6rem;
+    margin-right: .4rem; }
+    .day-card__options--magnify {
+      cursor: pointer; }
+    .day-card__options--new {
+      height: 2.3rem;
+      width: 2.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer; }
+      .day-card__options--new:hover {
+        background-color: #6987C9; }
+      .day-card__options--new--white {
+        background-color: rgba(255, 255, 255, 0.26); }
+      .day-card__options--new--light {
+        background-color: rgba(197, 213, 234, 0.26); }
+    .day-card__options--icon {
+      height: 2rem;
+      width: 2rem; }
+      .day-card__options--icon--white {
+        fill: #fff; }
+      .day-card__options--icon--dark {
+        fill: #C5D5EA; }
+  .day-card__description {
+    flex: 1;
+    align-self: center;
+    font-family: Arial;
+    text-align: center;
+    font-weight: 200;
+    font-size: 1.1rem;
+    color: #2699FB; }
+
+.day-card__options--nex:active .day-card {
+  height: 50rem; }
+
+.tick-box {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Create a custom checkbox */ }
+  .tick-box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer; }
+  .tick-box__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5rem;
+    width: 5rem;
+    background-color: #eee;
+    transition: all .2s; }
+    .tick-box__checkmark:after {
+      content: "";
+      position: absolute;
+      display: none; }
+  .tick-box:hover input ~ .tick-box__checkmark:after {
+    display: block; }
+  input:checked ~ .tick-box__checkmark {
+    background-color: #6987C9; }
+  input:checked ~ .tick-box__checkmark:after {
+    display: block; }
+  .tick-box__checkmark:after {
+    left: 1.5rem;
+    top: .5rem;
+    width: 1.5rem;
+    height: 3rem;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
