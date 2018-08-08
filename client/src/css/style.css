@@ -32,11 +32,11 @@ body {
 
 @keyframes expandCard {
   0% {
-    width: 26rem; }
-  80% {
-    width: 100rem; }
+    width: 26rem;
+    height: 26rem; }
   100% {
-    width: 135rem; } }
+    width: 134.5rem;
+    height: 33rem; } }
 
 .header {
   height: 10vh;
@@ -144,12 +144,11 @@ body {
   height: 26rem;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   position: relative; }
   .day-card--expand {
-    animation: expandCard .5s forwards;
+    animation: expandCard 1s forwards;
     position: absolute;
     z-index: 1; }
   .day-card--active {
@@ -195,14 +194,14 @@ body {
       color: #C5D5EA;
       background-color: #6987C9; }
   .day-card__todo {
-    width: 98%;
+    width: 26rem;
     height: 5rem;
     background-color: #fff;
     margin-bottom: 2px;
     display: flex;
     flex-direction: row; }
   .day-card__options {
-    width: 24%;
+    width: 6rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

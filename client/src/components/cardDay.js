@@ -90,7 +90,7 @@ export default class CardDay extends Component {
           </div>
         }
         {(!this.state.toggleNew) &&
-          <ul style={{listStyle: 'none', width: '100%', overflow: 'hidden', overflowY: 'scroll'}}>
+          <ul style={{listStyle: 'none', width: '100%', overflow: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
             {this.state.todos.map((todo) => {
                 return (
                   <li >

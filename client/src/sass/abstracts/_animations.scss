@@ -1,11 +1,10 @@
 @keyframes expandCard {
   0% {
     width: 26rem;
-  }
-  80% {
-    width: 100rem;
+    height: 26rem;
   }
   100% {
-    width: 135rem;
+    width: 134.5rem;
+    height: 33rem;
   }
 }
