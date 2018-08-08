@@ -2,8 +2,12 @@
 
 @import "abstracts/variables";
 @import "abstracts/typography";
+@import "abstracts/utilities";
+@import "abstracts/animations";
 
-@import "components/header";
+@import "layout/header";
+@import "layout/weekView";
+
 @import "components/menu-card";
 @import "components/day-card";
 @import "components/buttons";

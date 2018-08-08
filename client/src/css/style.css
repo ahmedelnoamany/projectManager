@@ -11,16 +11,32 @@ html {
 body {
   box-sizing: border-box; }
 
+.heading-1 {
+  font-size: 3.5rem;
+  font-family: Arial;
+  font-weight: 300;
+  color: #6987C9; }
+
 .heading-3 {
   font-size: 2rem;
   font-family: Arial;
   font-weight: 200;
-  color: #fff;
-  margin-bottom: 1rem; }
+  color: #fff; }
   .heading-3--white {
     color: #fff; }
   .heading-3--dark {
     color: #6987C9; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
+
+@keyframes expandCard {
+  0% {
+    width: 26rem; }
+  80% {
+    width: 100rem; }
+  100% {
+    width: 135rem; } }
 
 .header {
   height: 10vh;
@@ -100,6 +116,21 @@ body {
     position: fixed;
     right: -9rem; }
 
+.week-view {
+  margin-top: 5rem; }
+  .week-view__heading-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 17rem; }
+  .week-view__todos-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 30rem;
+    margin: 5rem auto;
+    background-color: rgba(240, 240, 240, 0.29); }
+
 .menu-card {
   margin-top: 3rem;
   display: flex;
@@ -113,14 +144,56 @@ body {
   height: 26rem;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: center; }
+  align-items: center;
+  position: relative; }
+  .day-card--expand {
+    animation: expandCard .5s forwards;
+    position: absolute;
+    z-index: 1; }
   .day-card--active {
     background-color: #fff;
     border: .5rem solid;
+    margin-top: -3rem;
     border-color: #C5D5EA; }
   .day-card--normal {
     background-color: #C5D5EA; }
+  .day-card__new {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; }
+    .day-card__new--text-input {
+      border-top: 2px solid #C5D5EA;
+      border-bottom: 2px solid #C5D5EA;
+      border-right: none;
+      border-left: none;
+      width: 100%;
+      margin-bottom: 1rem; }
+      .day-card__new--text-input:focus {
+        outline: none; }
+      .day-card__new--text-input--desc {
+        height: 35%;
+        resize: none; }
+      .day-card__new--text-input--cat {
+        height: 15%; }
+    .day-card__new--create-btn {
+      width: 100%;
+      height: 20%;
+      border: none;
+      background-color: #C5D5EA; }
+    .day-card__new--close-btn {
+      cursor: pointer;
+      border: none;
+      width: 2.6rem;
+      height: 2.3rem;
+      font-size: 1.6rem;
+      color: #C5D5EA;
+      background-color: #6987C9; }
   .day-card__todo {
     width: 98%;
     height: 5rem;
