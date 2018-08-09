@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../base/Header';
 import WeekView from '../calender/weekView';
+import Separator from '../components/separator';
 
 export default class App extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class App extends Component {
       <div>
         <Header />
         <WeekView />
+        <Separator title="projects"/>
       </div>
     )
   }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class CardDay extends Component {
   constructor(props) {
     super(props);
@@ -90,7 +89,7 @@ export default class CardDay extends Component {
           </div>
         }
         {(!this.state.toggleNew) &&
-          <ul style={{listStyle: 'none', width: '100%', overflow: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+          <ul style={{listStyle: 'none', width: '100%', overflow: 'hidden', overflowY: 'scroll', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center'}}>
             {this.state.todos.map((todo) => {
                 return (
                   <li >

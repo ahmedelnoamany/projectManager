@@ -6,7 +6,7 @@ export default class WeekView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: 'Wednesday',
+      active: 'Friday',
       days: [
         {name: 'Monday', todos: [
           {complete: false, description: 'Do some work today', category: 'none'},

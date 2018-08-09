@@ -7,10 +7,12 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
+  transition: all .3s;
   &--expand {
     animation: expandCard 1s forwards; 
-    position: absolute;
+    position: inherit;
     z-index: 1;
+    transition: all 4s;
   }
 
   &--active {
