@@ -4,7 +4,9 @@
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: repeat(6, 1fr);
   width: 80%;
+  height: 80rem;
   margin: 5rem auto;
+  overflow: hidden;
 
   &__selected-project {
     grid-column: 1 / 4;
@@ -52,14 +54,6 @@
         margin-left: 1rem;
         color: #A6F7A6;
       }
-      &--priority-bar {
-        height: 2rem;
-        background-color: #F1F9FF;
-        border-radius: 1rem;
-        width: 40%;
-        margin-bottom: 5rem;
-      }
-      
     }
     &--graph-container {
       grid-column: 2 / 5;
@@ -117,7 +111,8 @@
     grid-gap: 2rem;
     margin-right: 2rem;
     margin-left: 2rem;
-
+    overflow: hidden;
+    overflow-y: scroll;
 
     &--card {
       display: flex;
@@ -126,6 +121,7 @@
       align-items: center;
       text-align: center;
       padding: 1rem 0;
+      
       &:hover {
         background-color: $color-primary-dark;
         cursor: pointer;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PriorityBar from '../components/priorityBar';
+
 
 export default class ProjectView extends Component {
   constructor(props) {
@@ -26,7 +28,9 @@ export default class ProjectView extends Component {
             05/19/2019
             <span className="project-view__selected-project--desc-container--secondary-text">{`${project.due} days`}</span>
           </span>
-          <div className="project-view__selected-project--desc-container--priority-bar"></div>
+          <div style={{width: '66%'}}>
+            <PriorityBar priority={project.priority} project={project.title} disable={false}/>
+          </div>
         </div>
         <div className="project-view__selected-project--graph-container">
           Pie chart section
@@ -68,9 +72,11 @@ export default class ProjectView extends Component {
             >
               <h4 className="project-view__selected-project--desc-container--main-text">{project.title}</h4>
               <div
-                style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', paddingLeft: '1rem', paddingRight: '1rem'}}
+                style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%', paddingLeft: '1rem', paddingRight: '1rem', alignItems: 'end'}}
               >
-                <span>{`Priority: ${project.priority}`}</span>
+                <div style={{width: '80%', height: '1.5rem'}}>
+                  <PriorityBar priority={project.priority} disable={true} />
+                </div>
                 <span className="project-view__selected-project--desc-container--secondary-text">{`${project.due} days`}</span>
               </div>
             </div>
