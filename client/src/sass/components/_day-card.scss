@@ -8,13 +8,12 @@
   align-items: center;
   position: relative;
   transition: all .3s;
-  &--expand {
-    animation: expandCard 1s forwards; 
-    position: inherit;
-    z-index: 1;
-    transition: all 4s;
-  }
 
+  &--expand {
+    animation: expandCard .2s forwards; 
+    position: absolute;
+    z-index: 1;
+  }
   &--active {
     background-color: $color-white;
     border: .5rem solid;

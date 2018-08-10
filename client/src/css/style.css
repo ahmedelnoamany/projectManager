@@ -110,6 +110,7 @@ body {
     background-color: #7C8DB2;
     border-radius: 1rem;
     position: fixed;
+    z-index: 1000;
     right: -5rem; }
   .search__form-group {
     display: flex;
@@ -138,6 +139,7 @@ body {
     background-color: #7C8DB2;
     border-radius: 1rem;
     position: fixed;
+    z-index: 1000;
     right: -7rem; }
 
 .account-options {
@@ -150,6 +152,7 @@ body {
     background-color: #7C8DB2;
     border-radius: 1rem;
     position: fixed;
+    z-index: 1000;
     right: -9rem; }
 
 .week-view {
@@ -185,10 +188,9 @@ body {
   position: relative;
   transition: all .3s; }
   .day-card--expand {
-    animation: expandCard 1s forwards;
-    position: inherit;
-    z-index: 1;
-    transition: all 4s; }
+    animation: expandCard .2s forwards;
+    position: absolute;
+    z-index: 1; }
   .day-card--active {
     background-color: #fff;
     border: .5rem solid;
@@ -324,3 +326,114 @@ body {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg); }
+
+.project-view {
+  background-color: rgba(240, 240, 240, 0.29);
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  width: 80%;
+  margin: 5rem auto; }
+  .project-view__selected-project {
+    grid-column: 1 / 4;
+    grid-row: 1 / -1;
+    background-color: #7FC4FD;
+    padding: 1rem 2rem;
+    height: 82rem;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 4rem repeat(4, max-content) 2rem;
+    grid-template-columns: 3rem repeat(3, 1fr) 3rem; }
+    .project-view__selected-project--title-text {
+      grid-column: 2 / 5;
+      grid-row: 2 / 2;
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 5rem; }
+    .project-view__selected-project--desc-container {
+      grid-column: 2 / 5;
+      grid-row: 3 / 3;
+      display: flex;
+      flex-direction: column; }
+      .project-view__selected-project--desc-container--main-text {
+        color: #fff;
+        margin-bottom: 3rem;
+        font-size: 1.8rem;
+        font-family: Arial;
+        font-weight: 100;
+        letter-spacing: .1rem; }
+      .project-view__selected-project--desc-container--secondary-text {
+        font-size: 1.2rem;
+        font-family: Arial;
+        margin-left: 1rem;
+        color: #A6F7A6; }
+      .project-view__selected-project--desc-container--priority-bar {
+        height: 2rem;
+        background-color: #F1F9FF;
+        border-radius: 1rem;
+        width: 40%;
+        margin-bottom: 5rem; }
+    .project-view__selected-project--graph-container {
+      grid-column: 2 / 5;
+      grid-row: 4 / 4;
+      height: 40rem;
+      background-color: #F1F9FF;
+      margin-bottom: 3rem; }
+    .project-view__selected-project--task-container {
+      grid-column: 2 / 5;
+      grid-row: 5 / 5;
+      font-family: Arial;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      .project-view__selected-project--task-container--tasks {
+        flex: .8;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; }
+        .project-view__selected-project--task-container--tasks--icon {
+          width: 3rem;
+          height: 3rem;
+          fill: #fff;
+          margin-right: 1rem; }
+        .project-view__selected-project--task-container--tasks span {
+          display: flex;
+          flex-direction: row;
+          align-items: center; }
+      .project-view__selected-project--task-container--expand-btn {
+        border: none;
+        background-color: transparent;
+        font: inherit;
+        color: #fff; }
+  .project-view__preview-projects {
+    background-color: rgba(240, 240, 240, 0.29);
+    grid-column: 4 / -1;
+    grid-row: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem; }
+    .project-view__preview-projects--card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 1rem 0; }
+      .project-view__preview-projects--card:hover {
+        background-color: #6987C9;
+        cursor: pointer; }
+      .project-view__preview-projects--card--normal {
+        background-color: rgba(105, 135, 201, 0.2); }
+      .project-view__preview-projects--card--selected {
+        background-color: #6987C9; }
+
+.red {
+  fill: #FF7B7B; }
