@@ -75,7 +75,7 @@ export default class ProjectView extends Component {
                 style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%', paddingLeft: '1rem', paddingRight: '1rem', alignItems: 'end'}}
               >
                 <div style={{width: '80%', height: '1.5rem'}}>
-                  <PriorityBar priority={project.priority} disable={true} />
+                  <PriorityBar priority={project.priority} disable={true} project={project.title} />
                 </div>
                 <span className="project-view__selected-project--desc-container--secondary-text">{`${project.due} days`}</span>
               </div>

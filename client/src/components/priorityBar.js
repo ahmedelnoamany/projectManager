@@ -10,9 +10,12 @@ export default class PriorityBar extends Component {
       disable: this.props.disable,
       title: this.props.title
     }
+    
   }
   componentWillReceiveProps(nextProps) {
-     this.props === nextProps ? null : this.props = nextProps
+    if (this.state.priority !== nextProps.priority || this.state.disable !== nextProps.disable || this.state.title !== nextProps.title) {
+      this.setState({ priority: nextProps.priority, disable: nextProps.disable, title: nextProps.title });
+    }
   }
   render() {
     return (
