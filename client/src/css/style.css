@@ -500,3 +500,71 @@ body {
       background-color: #F7A6A6;
       grid-column: 4 / 5;
       opacity: 1; }
+
+.calendar-view__day-label-container {
+  background-color: transparent;
+  width: 95%;
+  height: 5rem;
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: .5rem;
+  align-items: flex-end; }
+  .calendar-view__day-label-container span {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #707070; }
+
+.calendar-view__month-container {
+  background-color: rgba(240, 240, 240, 0.29);
+  height: 80rem;
+  width: 95%;
+  margin: .3rem auto;
+  display: grid;
+  grid-template-rows: repeat(6, minmax(20rem, 40rem));
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: .5rem; }
+
+.calendar-view__month-day--normal {
+  background-color: #C5D5EA; }
+
+.calendar-view__month-day--active {
+  background-color: #fff;
+  border: 0.25rem solid #6987C9; }
+
+.calendar-view__month-day--inactive {
+  background-color: rgba(209, 212, 216, 0.53); }
+
+.calendar-view__month-day--date {
+  font-size: 3rem;
+  font-family: Arial;
+  font-weight: bold;
+  margin-left: .3rem; }
+  .calendar-view__month-day--date-other {
+    color: #fff; }
+  .calendar-view__month-day--date-current {
+    color: #707070; }
+  .calendar-view__month-day--date-today {
+    color: #f07a76; }
+
+.calendar-view__task-container {
+  margin: 1rem auto;
+  width: 100%;
+  display: grid;
+  grid-template-rows: min-content;
+  grid-template-columns: 100%; }
+
+.calendar-view__task {
+  background-color: yellowgreen;
+  height: 3rem;
+  margin-bottom: 3px; }
+  .calendar-view__task--connected {
+    margin-left: -.6rem; }
+
+.calendar-view--heading {
+  margin-left: 5rem;
+  margin-top: 2rem;
+  transform: translateY(4rem); }

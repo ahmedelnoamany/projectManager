@@ -23,9 +23,6 @@ export default class CardDay extends Component {
       category: this.state.newCategory
     };
     newTodoList.push(newTodo);
-    console.log(this.state.newDescription);
-    console.log(newTodoList);
-    
     this.setState({ todos: newTodoList, toggleNew: false});
   }
   render() {
