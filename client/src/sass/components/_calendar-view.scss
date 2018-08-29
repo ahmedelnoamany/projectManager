@@ -3,8 +3,8 @@
   &__day-label-container {
     background-color: transparent;
     width: 95%;
-    height: 5rem;
-    margin-top: 3rem;
+    height: 2rem;
+    margin-top: 1rem;
     margin-right: auto;
     margin-left: auto;
 
@@ -80,11 +80,79 @@
     }
     
   }
-
+  &--header {
+    width: 95%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 
   &--heading {
-    margin-left: 5rem;
-    margin-top: 2rem;
-    transform: translateY(4rem);
+    cursor: pointer;
   }
+  &__month-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    z-index: 1000;
+    width: 15rem;
+
+    background-color: rgba(rgb(240, 240, 240), .68);
+
+    a {
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+      color: #707070;
+    }
+    a:hover {
+      background-color: #707070;
+      color: $color-white;
+    }
+  }
+}
+
+.calendar-navigation{
+
+  &--container {
+    width: 40rem;
+    height: 4rem;
+    margin-left: 2rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(#D1D4D8, .18);
+  }
+  &--option {
+    height: 100%;
+    width: 10rem;
+    font-family: Helvetica;
+    font-size: 2.5rem;
+    color: #707070;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-active {
+      height: 100%;
+      width: 10rem;
+      font-family: Helvetica;
+      font-size: 2.5rem;
+      font-weight: 300;
+      background-color: #707070;
+      color: $color-white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
 }

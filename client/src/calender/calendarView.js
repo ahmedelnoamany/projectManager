@@ -9,7 +9,24 @@ export default class CalendarView extends Component {
       today: moment(),
       showMonthPopup: false,
       showYearPopup: false,
+      currentMode: 2,
     };
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+  handleClickOutside(event) {
+    if(this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.setState({ showMonthPopup: false });
+    }
   }
 
   weekdays = moment.weekdays(); //Sunday -> Saturday
@@ -41,6 +58,7 @@ export default class CalendarView extends Component {
     let firstDay = moment(dateContext).startOf('month').format('d');
     return firstDay;
   }
+
   renderWeekdays = () => {
     let weekdays = this.weekdaysShort.map((day, index) => {
       return (
@@ -49,6 +67,7 @@ export default class CalendarView extends Component {
     })
     return weekdays;
   }
+
   calculateEmptyDays = () => {
     let emptyElements = [];
     for (let i = 0; i < this.firstDayOfMonth(); i++) {
@@ -58,6 +77,7 @@ export default class CalendarView extends Component {
     }
     return emptyElements;
   }
+
   renderDays = () => {
     let daysInMonth = [];
     for (let i = 0; i < this.daysInMonth(); i++) {
@@ -97,11 +117,65 @@ export default class CalendarView extends Component {
     let month = rows.map((day, i) => day);
     return month;
   }
+  setMonth = (month) => {
+    let monthIndex = this.months.indexOf(month);
+    let dateContext = Object.assign({}, this.state.momentContext);
+    dateContext = moment(dateContext).set("month", monthIndex);
+    this.setState({
+        momentContext: dateContext
+    });
+}
 
+  renderNavButtons() {
+    return (
+      <div className="calendar-navigation--container">
+        <a 
+          className={this.state.currentMode === 0 ? "calendar-navigation--option-active" : "calendar-navigation--option"}
+          onClick={() => this.setState({ currentMode: 0 })}
+        >
+          Day
+        </a>
+        <a 
+          className={this.state.currentMode === 1 ? "calendar-navigation--option-active" : "calendar-navigation--option"}
+          onClick={() => this.setState({ currentMode: 1 })}
+        >
+          Week
+        </a>
+        <a 
+          className={this.state.currentMode === 2 ? "calendar-navigation--option-active" : "calendar-navigation--option"}
+          onClick={() => this.setState({ currentMode: 2 })}
+        >
+          Month
+        </a>
+        <a 
+          className={this.state.currentMode === 3 ? "calendar-navigation--option-active" : "calendar-navigation--option"}
+          onClick={() => this.setState({ currentMode: 3 })}
+        >
+          Year
+        </a>
+      </div>
+    )
+  }
   render() {
+    let monthList = moment.months();
     return (
       <div className="calendar-view">
-        <h1 className="heading-1 calendar-view--heading">{this.month() + ' ' + this.year()}</h1>
+        <div className="calendar-view--header">
+          <a className="heading-1 calendar-view--heading"
+            onClick={() => this.setState({ showMonthPopup: !this.state.showMonthPopup })}
+          >
+            {this.month() + ' ' + this.year()}
+            {this.state.showMonthPopup &&
+              <div className="calendar-view__month-popup" ref={this.setWrapperRef}>
+                {monthList.map((month) => {
+                  return <a onClick={() => this.setMonth(month)}>{month}</a>
+                })}
+              </div>
+            }
+          </a>
+          
+          {this.renderNavButtons()}
+        </div>
         <div className="calendar-view__day-label-container">
           {this.renderWeekdays()}
         </div>

@@ -504,8 +504,8 @@ body {
 .calendar-view__day-label-container {
   background-color: transparent;
   width: 95%;
-  height: 5rem;
-  margin-top: 3rem;
+  height: 2rem;
+  margin-top: 1rem;
   margin-right: auto;
   margin-left: auto;
   display: grid;
@@ -564,7 +564,62 @@ body {
   .calendar-view__task--connected {
     margin-left: -.6rem; }
 
+.calendar-view--header {
+  width: 95%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; }
+
 .calendar-view--heading {
-  margin-left: 5rem;
-  margin-top: 2rem;
-  transform: translateY(4rem); }
+  cursor: pointer; }
+
+.calendar-view__month-popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  width: 15rem;
+  background-color: rgba(240, 240, 240, 0.68); }
+  .calendar-view__month-popup a {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: #707070; }
+  .calendar-view__month-popup a:hover {
+    background-color: #707070;
+    color: #fff; }
+
+.calendar-navigation--container {
+  width: 40rem;
+  height: 4rem;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(209, 212, 216, 0.18); }
+
+.calendar-navigation--option {
+  height: 100%;
+  width: 10rem;
+  font-family: Helvetica;
+  font-size: 2.5rem;
+  color: #707070;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .calendar-navigation--option-active {
+    height: 100%;
+    width: 10rem;
+    font-family: Helvetica;
+    font-size: 2.5rem;
+    font-weight: 300;
+    background-color: #707070;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
