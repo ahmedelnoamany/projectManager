@@ -7,6 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 
 import App from './src/containers/app/App';
+import LoginForm from './src/containers/auth/LoginForm';
 
 const cache = new InMemoryCache();
 
@@ -21,6 +22,7 @@ const Root = () => {
     <ApolloProvider client={client}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
+          <Route path="login" component={LoginForm} />
         </Route>
       </Router>
     </ApolloProvider>
