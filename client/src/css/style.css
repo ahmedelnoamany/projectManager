@@ -100,6 +100,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between; }
+  .header-options__btn-container {
+    background-color: red;
+    height: 10vh;
+    width: 10rem; }
 
 .search {
   position: relative; }
@@ -327,6 +331,13 @@ body {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg); }
+
+.btn {
+  display: block;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .project-view {
   background-color: rgba(240, 240, 240, 0.29);

@@ -21,13 +21,13 @@ passport.deserializeUser((id, done) => {
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
   User.findOne({ email: email.toLowerCase() }, (err, user) => {
     if (err) { return done(err); }
-    if (!user) { return done(null, false, 'Invalid username and/or password'); }
+    if (!user) { return done(null, false, 'Invalid email and/or password'); }
     user.comparePassword(password, (err, isMatch) => {
       if (err) { return done(err); }
       if (isMatch) {
         return done(null, user);
       }
-      return done(null, false, 'Invalid username and/or password');
+      return done(null, false, 'Invalid email and/or password');
     });
   });
 }));
@@ -56,7 +56,7 @@ function signup({ email, password, req }) {
 function login({ email, password, req }) {
   return new Promise((resolve, reject) => {
     passport.authenticate('local', (err, user) => {
-      if (!user) { reject('Invalid Credentials') }
+      if (!user) { reject('Invalid email and/or password') }
       req.login(user, () => resolve(user));
     })({ body: { email, password } });
   });

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import AuthForm from './AuthForm';
-import loginMutation from '../../mutations/Login';
 import { graphql } from 'react-apollo';
+import signupMutation from '../../mutations/Signup';
 import query from '../../queries/CurrentUser';
 import { hashHistory } from 'react-router';
 
-class LoginForm extends Component {
+class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,6 @@ class LoginForm extends Component {
   }
   componentWillUpdate(nextProps) {
     if (!this.props.data.user && nextProps.data.user) {
-      //redirect to dashboard
       hashHistory.push('/dashboard');
     }
   }
@@ -23,23 +22,23 @@ class LoginForm extends Component {
       variables: { email, password },
       refetchQueries: [{ query }]
     }).catch(res => {
-      const errors = res.graphQLErrors.map(error => error.message);
+      let errors = res.graphQLErrors.map(error => error.message);
       this.setState({ errors });
-     });
+    })
   }
   render() {
     return (
       <div>
-        <h3>Login</h3>
+        <h3>Sign Up</h3>
         <AuthForm 
           onSubmit={ this.onSubmit.bind(this) }
           errors={ this.state.errors }
         />
       </div>
-    )
+    );
   }
-}
+};
 
 export default graphql(query)(
-graphql(loginMutation)(LoginForm)
+  graphql(signupMutation)(SignupForm)
 );

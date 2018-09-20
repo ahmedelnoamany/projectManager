@@ -3,13 +3,13 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import query from '../queries/CurrentUser';
 import mutation from '../mutations/Logout';
-
+import { hashHistory } from 'react-router';
 class Header extends Component {
   onLogoutClick() {
     this.props.mutate({
       refetchQueries: [{ query }]
-    });
-
+    }).then(hashHistory.push('/'));
+    
   }
   renderButtons() {
     const { loading, user } = this.props.data;
@@ -24,12 +24,9 @@ class Header extends Component {
       )
     } else {
       return(
-        <div>
-    
-          <Link to="/signup">Sign Up</Link>
-      
-          <Link to="/login">Login</Link>
-      
+        <div className="header-options header-options__btn-container">
+          <Link to="/signup" className="btn">Sign Up</Link>
+          <Link to="/login" className="btn">Login</Link>
         </div>
       )
     }
