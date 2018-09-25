@@ -5,5 +5,23 @@
   justify-content: space-evenly;
   height: 6rem;
   transition: all .2s;
+  &__item {
+    background-color: white;
+    width: 100%;
+    height: 3rem;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    font-size: 1.4rem;
+    font-weight: 100;
+    font-family: Helvetica;
+  
+    &:hover {
+      background-color: rgb(224, 220, 220);
+    }
+  }
 }

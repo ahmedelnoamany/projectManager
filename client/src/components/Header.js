@@ -4,6 +4,11 @@ import { Link } from 'react-router';
 import query from '../queries/CurrentUser';
 import mutation from '../mutations/Logout';
 import { hashHistory } from 'react-router';
+
+import AccountOptions from './AccountOptions';
+import SearchBar from './SearchBar';
+import NotificationManager from './NotificationManager';
+
 class Header extends Component {
   onLogoutClick() {
     this.props.mutate({
@@ -18,8 +23,10 @@ class Header extends Component {
 
     if (user) {
       return (
-        <div>
-          <a onClick={this.onLogoutClick.bind(this)}>Logout</a>
+        <div className="header-options">
+          <SearchBar />
+          <NotificationManager />
+          <AccountOptions onLogout={this.onLogoutClick.bind(this)} />
         </div>
       )
     } else {

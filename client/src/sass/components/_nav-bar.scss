@@ -18,7 +18,7 @@
   font-weight: bold;
   font-family: Arial;
   text-align: center;
-  color: #C5D5EA;
+  color: rgb(163, 194, 235);
   
   cursor: pointer;
   :link, :visited {
@@ -33,9 +33,6 @@
     justify-content: center;
     align-items: center;
     
-    :link, :visited {
-      color: inherit;
-    }
   }
 
 }

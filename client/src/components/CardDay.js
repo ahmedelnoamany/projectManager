@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import SearchIcon from '../assets/Search.svg';
+import PlusIcon from '../assets/Plus.svg';
+
 export default class CardDay extends Component {
   constructor(props) {
     super(props);
@@ -34,17 +37,13 @@ export default class CardDay extends Component {
               className="day-card__options--magnify"          
               onClick={() => this.setState({ expand: !this.state.expand })}
             >
-              <svg className={this.state.title === this.state.active ? "day-card__options--icon day-card__options--icon--dark" : "day-card__options--icon day-card__options--icon--white"}>
-                <use href="../assets/symbol-defs.svg#icon-search"></use>
-              </svg>
+              <SearchIcon  className={this.state.title === this.state.active ? "day-card__options--icon day-card__options--icon--dark" : "day-card__options--icon day-card__options--icon--white"}/>
             </a>
             <a 
               className={this.state.title === this.state.active ? "day-card__options--new day-card__options--new--light" : "day-card__options--new day-card__options--new--white"}
               onClick={() => this.setState({ toggleNew: true })}
             >
-              <svg className={this.state.title === this.state.active ? "day-card__options--icon day-card__options--icon--dark" : "day-card__options--icon day-card__options--icon--white"}>
-                <use href="../assets/symbol-defs.svg#icon-plus"></use>
-              </svg>
+              <PlusIcon className={this.state.title === this.state.active ? "day-card__options--icon day-card__options--icon--dark" : "day-card__options--icon day-card__options--icon--white"} />
             </a>
           </div>
         }

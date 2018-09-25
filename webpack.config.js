@@ -38,7 +38,7 @@ var config = {
           {
             loader: "react-svg-loader",
             options: {
-              jsx: true // true outputs JSX tags
+              jsx: false // true outputs JSX tags
             }
           }
         ]
@@ -49,7 +49,7 @@ var config = {
     new HtmlWebpackPlugin({
       template: SRC_DIR + "/index.html",
       
-    }),
+    })
   ]
 };
 
