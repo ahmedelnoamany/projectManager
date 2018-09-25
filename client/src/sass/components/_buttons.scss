@@ -59,4 +59,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  
+  &__auth {
+    height: 8rem;
+    border: none;
+    border-radius: 1rem;
+
+    //text
+    color: $color-white;
+    font-size: 2.2rem;
+    font-weight: 200;
+    font-family: Helvetica;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &--right {
+      background-color: $color-primary-dark;
+      width: 20rem;
+
+      &:hover {
+        background-color: rgba($color-primary-dark, 1.5);
+
+      }
+    }
+    &--left {
+      background-color: #FF7E7E;
+      width: 12rem;
+
+    }
+  }
 }

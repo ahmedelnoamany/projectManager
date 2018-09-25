@@ -29,11 +29,12 @@ class LoginForm extends Component {
   }
   render() {
     return (
-      <div>
-        <h3>Login</h3>
+      <div className="form">
+        <h1 className="heading-1 heading-1--white form__heading">Log In</h1>
         <AuthForm 
           onSubmit={ this.onSubmit.bind(this) }
           errors={ this.state.errors }
+          title="Log In"
         />
       </div>
     )

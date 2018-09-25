@@ -9,3 +9,20 @@
 
   }
 }
+@keyframes expandError {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes expandGrid {
+  0% {
+    grid-row: 2 / 4;
+  }
+  100% {
+    grid-row: 2 / 5;
+
+  }
+}

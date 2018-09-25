@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
+import currentUserQuery from '../../queries/CurrentUser';
+import { graphql } from 'react-apollo';
 
 import Header from '../../components/Header';
+import NavBar from '../../components/NavBar';
+
 import '../../css/style.css';
 
-const App = (props) => {
-  return (
-    <div className="container">
-      <Header />
-      {props.children}
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props);
+  }
+  render() {
+    console.log(this.props.location.pathname);
+    return (
+      <div className='container'>
+        <Header />
+        {!this.props.data.loading && this.props.data.user ? <NavBar currentPage={this.props.location.pathname} /> : ''}
+        {this.props.children}
+      </div>
+    )
+  }
 }
-export default App;
+
+export default graphql(currentUserQuery)(App);

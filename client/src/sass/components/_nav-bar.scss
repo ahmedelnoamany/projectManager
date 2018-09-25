@@ -1,0 +1,41 @@
+.nav-bar {
+  width: 75rem;
+  height: 6rem;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  
+
+  border-left: 2px solid #C5D5EA;
+  border-right: 2px solid #C5D5EA;
+  border-bottom: 2px solid #C5D5EA;
+  
+
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: Arial;
+  text-align: center;
+  color: #C5D5EA;
+  
+  cursor: pointer;
+  :link, :visited {
+    color: inherit;
+  }
+  &__active {
+    color: $color-white;
+    background-color: #C5D5EA;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    :link, :visited {
+      color: inherit;
+    }
+  }
+
+}

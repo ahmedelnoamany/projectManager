@@ -28,6 +28,20 @@ var config = {
       {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
       }
     ]
   },
@@ -35,7 +49,7 @@ var config = {
     new HtmlWebpackPlugin({
       template: SRC_DIR + "/index.html",
       
-    })
+    }),
   ]
 };
 

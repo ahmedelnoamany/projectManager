@@ -4,7 +4,13 @@
     font-size: 3.5rem;
     font-family: Arial;
     font-weight: 300;
-    color: $color-primary-dark;
+    
+    &--white {
+      color: $color-white;
+    }
+    &--dark {
+      color: $color-primary-dark;
+    }
   }
 
   &-3{
@@ -22,4 +28,8 @@
     }
   }
   
+}
+.error-text {
+  font-size: 1.5rem;
+  color: rgb(247, 55, 55);
 }

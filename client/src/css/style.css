@@ -51,8 +51,11 @@ body {
 .heading-1 {
   font-size: 3.5rem;
   font-family: Arial;
-  font-weight: 300;
-  color: #6987C9; }
+  font-weight: 300; }
+  .heading-1--white {
+    color: #fff; }
+  .heading-1--dark {
+    color: #6987C9; }
 
 .heading-3 {
   font-size: 2rem;
@@ -64,6 +67,10 @@ body {
   .heading-3--dark {
     color: #6987C9; }
 
+.error-text {
+  font-size: 1.5rem;
+  color: #f73737; }
+
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important; }
 
@@ -74,6 +81,18 @@ body {
   100% {
     width: 134.5rem;
     height: 33rem; } }
+
+@keyframes expandError {
+  0% {
+    height: 0; }
+  100% {
+    height: 100%; } }
+
+@keyframes expandGrid {
+  0% {
+    grid-row: 2 / 4; }
+  100% {
+    grid-row: 2 / 5; } }
 
 .header {
   height: 10vh;
@@ -174,6 +193,65 @@ body {
     height: 30rem;
     margin: 5rem auto;
     background-color: rgba(240, 240, 240, 0.29); }
+
+.form {
+  width: 40rem;
+  height: 74rem;
+  padding-top: 10rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
+  .form__heading {
+    height: 10rem;
+    background-color: #6987C9;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.16); }
+  .form__auth {
+    width: 100%;
+    height: 70%;
+    background-color: #fff;
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.16);
+    display: flex;
+    flex-direction: column; }
+    .form__auth__input-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between; }
+    .form__auth__input {
+      width: 85%;
+      height: 8rem;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly; }
+      .form__auth__input--input {
+        width: 85%;
+        height: 10rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1.8rem;
+        font-family: Helvetica;
+        font-weight: 300;
+        padding-left: 2rem;
+        background-color: #EFEFEF; }
+        .form__auth__input--input:placeholder {
+          color: #00000036; }
+        .form__auth__input--input:focus {
+          outline: none;
+          border-radius: 1rem;
+          border: 1px solid #6987C9; }
+      .form__auth__input__error {
+        transition: all .2s; }
+        .form__auth__input__error--disabled {
+          height: 3rem; }
 
 .menu-card {
   margin-top: 3rem;
@@ -337,7 +415,26 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  cursor: pointer; }
+  .btn__auth {
+    height: 8rem;
+    border: none;
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 200;
+    font-family: Helvetica; }
+    .btn__auth:focus {
+      outline: 0; }
+    .btn__auth--right {
+      background-color: #6987C9;
+      width: 20rem; }
+      .btn__auth--right:hover {
+        background-color: #6987c9; }
+    .btn__auth--left {
+      background-color: #FF7E7E;
+      width: 12rem; }
 
 .project-view {
   background-color: rgba(240, 240, 240, 0.29);
@@ -651,3 +748,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; }
+
+.nav-bar {
+  width: 75rem;
+  height: 6rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  border-left: 2px solid #C5D5EA;
+  border-right: 2px solid #C5D5EA;
+  border-bottom: 2px solid #C5D5EA;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: Arial;
+  text-align: center;
+  color: #C5D5EA;
+  cursor: pointer; }
+  .nav-bar :link, .nav-bar :visited {
+    color: inherit; }
+  .nav-bar__active {
+    color: #fff;
+    background-color: #C5D5EA;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .nav-bar__active :link, .nav-bar__active :visited {
+      color: inherit; }

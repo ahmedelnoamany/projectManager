@@ -11,6 +11,8 @@ import App from './src/containers/app/App';
 import LoginForm from './src/containers/auth/LoginForm';
 import SignupForm from './src/containers/auth/SignupForm';
 import Dashboard from './src/containers/profile/Dashboard';
+import CalendarView from './src/containers/calendar/CalendarView';
+import BillingView from './src/containers/billing/BillingView';
 
 const cache = new InMemoryCache();
 
@@ -28,6 +30,8 @@ const Root = () => {
           <Route path="login" component={LoginForm} />
           <Route path="signup" component={SignupForm} />
           <Route path="dashboard" component={requireAuth(Dashboard)} />
+          <Route path="calendar" component={requireAuth(CalendarView)} />
+          <Route path="billing" component={requireAuth(BillingView)} />
         </Route>
       </Router>
     </ApolloProvider>

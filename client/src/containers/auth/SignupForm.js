@@ -28,11 +28,12 @@ class SignupForm extends Component {
   }
   render() {
     return (
-      <div>
-        <h3>Sign Up</h3>
+      <div className="form">
+        <h1 className="heading-1 heading-1--white form__heading">Sign Up</h1>
         <AuthForm 
           onSubmit={ this.onSubmit.bind(this) }
           errors={ this.state.errors }
+          title="Sign Up"
         />
       </div>
     );
