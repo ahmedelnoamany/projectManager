@@ -23,16 +23,17 @@
   cursor: pointer;
   :link, :visited {
     color: inherit;
-  }
-  &__active {
-    color: $color-white;
-    background-color: #C5D5EA;
+
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
+  }
+  &__active {
+    color: $color-white;
+    background-color: #C5D5EA;    
   }
 
 }

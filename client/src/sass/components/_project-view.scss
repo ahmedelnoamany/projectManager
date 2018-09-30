@@ -114,6 +114,13 @@
     overflow: hidden;
     overflow-y: scroll;
 
+    &--new {
+      background-color: rgba(#F0F0F0, .29);
+
+      &:hover {
+        background-color: rgba(#F0F0F0, .59);
+      }
+    }
     &--card {
       display: flex;
       flex-direction: column;

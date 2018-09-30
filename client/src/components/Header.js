@@ -32,8 +32,8 @@ class Header extends Component {
     } else {
       return(
         <div className="header-options header-options__btn-container">
-          <Link to="/signup" className="btn">Sign Up</Link>
-          <Link to="/login" className="btn">Login</Link>
+          <Link to="/login" className="btn__login u-margin-right-small">Login</Link>
+          <Link to="/signup" className="btn__main-heading">Sign Up</Link>
         </div>
       )
     }

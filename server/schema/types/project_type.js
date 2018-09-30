@@ -1,17 +1,19 @@
-const graphql = require ('graphql');
-const { 
+const graphql = require('graphql');
+const {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLDate,
+  GraphQLID,
+  GraphQLInt
 } = graphql;
 
 const ProjectType = new GraphQLObjectType({
   name: 'ProjectType',
   fields: {
     id: { type: GraphQLID },
-    tile: { type: GraphQLString },
-    dueDate: { type: GraphQLDate }
+    name: { type: GraphQLString },
+    dueDate: { type: GraphQLString },
+    priority: { type: GraphQLInt }
   }
 });
 
-module.exports = ProjetType;
+module.exports = ProjectType;

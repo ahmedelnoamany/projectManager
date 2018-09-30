@@ -29,11 +29,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   &__btn-container {
-    background-color: red;
     height: 10vh;
-    width: 10rem;
+    width: 18rem;
   }
 }
 

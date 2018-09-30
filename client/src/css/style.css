@@ -12,6 +12,11 @@ html {
 body {
   box-sizing: border-box; }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; }
+
 .seperator {
   width: 85%;
   margin: 1rem auto;
@@ -74,6 +79,19 @@ body {
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important; }
 
+.u-margin-right-small {
+  margin-right: 1.5rem !important; }
+
+.u-margin-right-big {
+  margin-right: 4.5rem !important; }
+
+.u-centered-div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 @keyframes expandCard {
   0% {
     width: 26rem;
@@ -118,11 +136,11 @@ body {
 .header-options {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
   .header-options__btn-container {
-    background-color: red;
     height: 10vh;
-    width: 10rem; }
+    width: 18rem; }
 
 .search {
   position: relative; }
@@ -180,7 +198,8 @@ body {
     right: -9rem; }
 
 .week-view {
-  margin-top: 5rem; }
+  margin-top: 5rem;
+  width: 100%; }
   .week-view__heading-container {
     display: flex;
     justify-content: flex-start;
@@ -430,6 +449,26 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer; }
+  .btn__login {
+    background-color: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
+    font-family: Helvetica; }
+  .btn__main-heading {
+    height: 100%;
+    width: 10rem;
+    background-color: white;
+    border: 1px solid #6987C9;
+    color: #6987C9;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: Helvetica;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .btn__main-heading:hover {
+      background-color: #EAF0F8; }
   .btn__auth {
     height: 8rem;
     border: none;
@@ -540,6 +579,10 @@ body {
     margin-left: 2rem;
     overflow: hidden;
     overflow-y: scroll; }
+    .project-view__preview-projects--new {
+      background-color: rgba(240, 240, 240, 0.29); }
+      .project-view__preview-projects--new:hover {
+        background-color: rgba(240, 240, 240, 0.59); }
     .project-view__preview-projects--card {
       display: flex;
       flex-direction: column;
@@ -780,12 +823,18 @@ body {
   color: #a3c2eb;
   cursor: pointer; }
   .nav-bar :link, .nav-bar :visited {
-    color: inherit; }
-  .nav-bar__active {
-    color: #fff;
-    background-color: #C5D5EA;
+    color: inherit;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center; }
+  .nav-bar__active {
+    color: #fff;
+    background-color: #C5D5EA; }
+
+.new-project {
+  height: 80%;
+  width: 80%;
+  margin: 5rem auto;
+  background-color: rgba(240, 240, 240, 0.29); }

@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-  title: String,
-  dueDate: Date
+const ProjectSchema = new Schema({
+  name: String,
+  dueDate: Date,
+  priority: Number
 });
+
+mongoose.model('project', ProjectSchema);
