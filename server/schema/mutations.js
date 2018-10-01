@@ -1,11 +1,13 @@
 const graphql = require('graphql');
-const AuthService = require('../services/auth');
-const ProjectService = require('../services/projectService');
 const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLInt
 } = graphql;
+const mongoose = require('mongoose');
+const AuthService = require('../services/auth');
+const Project = mongoose.model('project');
+
 const UserType = require('./types/user_type');
 const ProjectType = require('./types/project_type');
 
@@ -40,15 +42,15 @@ const mutation = new GraphQLObjectType({
         return AuthService.login({ email, password, req });
       }
     },
-    newProject: {
+    addProject: {
       type: ProjectType,
       args: {
-        name: { type: GraphQLString },
+        title: { type: GraphQLString },
         dueDate: { type: GraphQLString },
         priority: { type: GraphQLInt }
       },
-      resolve(parentValue, { name, dueDate, priority }, req) {
-        return ProjectService.createProject({ name, dueDate, priority, req });
+      resolve(parentValue, { title, dueDate, priority }) {
+        return (new Project({title, dueDate, priority })).save()
       }
     }
   }

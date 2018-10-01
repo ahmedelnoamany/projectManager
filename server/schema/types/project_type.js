@@ -8,12 +8,12 @@ const {
 
 const ProjectType = new GraphQLObjectType({
   name: 'ProjectType',
-  fields: {
+  fields: () => ({
     id: { type: GraphQLID },
-    name: { type: GraphQLString },
+    title: { type: GraphQLString },
     dueDate: { type: GraphQLString },
     priority: { type: GraphQLInt }
-  }
+  })
 });
 
 module.exports = ProjectType;
