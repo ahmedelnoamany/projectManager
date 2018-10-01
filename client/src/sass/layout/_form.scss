@@ -77,5 +77,82 @@
     }
   }
   
+  &__new-project {
+
+    height: 65vh;
+    width: 80%;
+    margin: 5rem auto;
+
+    background-color: rgba(#F0F0F0, .29);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+    &--nav-options {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+    }
+
+    &__input-group {
+      width: 100%;
+      margin: 1rem auto;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+      }
+      span {
+        font-size: 1.4rem;
+        font-weight: 300;
+        font-family: Arial;
+        color: #6987C9;
+      }
+    }
+
+    &--left-pane {
+      grid-row: 1 / 6;
+      grid-column: 1 / 2;
+
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+    }
+    &--center-pane {
+      grid-row: 1 / 7;
+      grid-column: 2 / 3;
+
+      background-color: thistle;
+
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+    }
+    &--right-pane {
+      grid-row: 1 / 6;
+      grid-column: 3 / 3;
+    }
+    &--summary {
+      width: 80%;
+      height: 100%;
+      margin: 1rem auto;
+      border: 2px solid #C5D5EA;
+      background-color: $color-white;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      &--seperator {
+        width: 100%;
+        height: 2px;
+        background-color: #C5D5EA;
+      }
+    }
+
+  }
 
 }
