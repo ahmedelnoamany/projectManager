@@ -1,19 +1,26 @@
+const mongoose = require('mongoose');
 const graphql = require('graphql');
 const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLID,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLList
 } = graphql;
+const User = require('../../models/user');
 
-const ProjectType = new GraphQLObjectType({
+const ProjectType = module.exports = new GraphQLObjectType({
   name: 'ProjectType',
   fields: () => ({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
     dueDate: { type: GraphQLString },
-    priority: { type: GraphQLInt }
+    priority: { type: GraphQLInt },
+    owner: {
+      type: require('./user_type'),
+      resolve(parentValue, args) {
+        return User.findById(parentValue.ownerID);
+      }
+    }
   })
 });
-
-module.exports = ProjectType;
