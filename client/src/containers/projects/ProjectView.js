@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import PriorityBar from '../../components/PriorityBar';
 import { Link } from 'react-router';
+import { graphql } from 'react-apollo';
+import userProjectQuery from '../../queries/userProjects';
 
 import CheckIcon from '../../assets/Check.svg';
 import BellIcon from '../../assets/Bell.svg';
 import ListULIcon from '../../assets/ListUL.svg';
 import PlusIcon from '../../assets/Plus.svg';
+import ExpandedProject from '../../components/ExpandedProject';
 
-export default class ProjectView extends Component {
+class ProjectView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: [
-        // {title: 'Project 1', priority: 1, due: 16},
-        // {title: 'Project 2', priority: 1, due: 20},
-        // {title: 'Project 3', priority: 2, due: 22},
-        // {title: 'Sample Selected Project', priority: 2, due: 50},
-        // {title: 'Project 5', priority: 3, due: 36},
-        // {title: 'Project 6', priority: 3, due: 47},
-      ],
-      selected: 3
+      selected: 0,
+      toggleExpandedProject: false
     }
   }
   renderSelectedProject() {
-    let project = this.state.projects[this.state.selected];
+    const { loading, user } = this.props.data;
+    
+    let project = user ? user.projects[this.state.selected] : null;
 
-    if (!project) {
+    if (!project || loading) {
       return (
         <div className="project-view__selected-project">
           <h3 
@@ -36,14 +34,21 @@ export default class ProjectView extends Component {
         </div>
       )
     } else {
+      let dueDateEpoch = project.dueDate;
+      let projectDueDate = new Date(0);
+      projectDueDate.setUTCSeconds(dueDateEpoch);
+      projectDueDate = projectDueDate.toString().split(' ');
+      let finalDate = projectDueDate.map((item, index) => {
+        return index < 4 ? item + ' ' : ''
+      });
       return (
         <div className="project-view__selected-project">
           <h3 className="project-view__selected-project--title-text">{project.title}</h3>
           <div className="project-view__selected-project--desc-container">
-            <span className="project-view__selected-project--desc-container--main-text">Client</span>
+            <span className="project-view__selected-project--desc-container--main-text">{project.client}</span>
             <span className="project-view__selected-project--desc-container--main-text">
-              05/19/2019
-              <span className="project-view__selected-project--desc-container--secondary-text">{`${project.due} days`}</span>
+              {project.dueDate ? finalDate : 'No dueDate'}
+              {/* <span className="project-view__selected-project--desc-container--secondary-text">{`${project.due} days`}</span> */}
             </span>
             <div style={{width: '66%'}}>
               <PriorityBar priority={project.priority} project={project.title} disable={false}/>
@@ -67,14 +72,20 @@ export default class ProjectView extends Component {
                 20
                 </span>
             </div>
-            <button className="project-view__selected-project--task-container--expand-btn">Expand</button>
+            <button 
+              className="project-view__selected-project--task-container--expand-btn"
+              onClick={ () => this.setState({ toggleExpandedProject: true })}
+            >Expand</button>
           </div>
         </div>
       )
     }
   }
   mapProjectThumbnails() {
-    if (!this.projects) {
+    const { loading, user } = this.props.data;
+    let projects = user ? user.projects : null;
+
+    if (loading || !projects) {
       return (
         <div className="project-view__preview-projects">
           <div className="project-view__preview-projects--card project-view__preview-projects--card--selected">
@@ -89,7 +100,7 @@ export default class ProjectView extends Component {
     } else {
       return (
         <div className="project-view__preview-projects">
-          {this.state.projects.map((project, index) => {
+          {projects.map((project, index) => {
             return (
               <div 
                 className={index === this.state.selected ? "project-view__preview-projects--card project-view__preview-projects--card--selected" : "project-view__preview-projects--card project-view__preview-projects--card--normal"}
@@ -105,8 +116,16 @@ export default class ProjectView extends Component {
                   <span className="project-view__selected-project--desc-container--secondary-text">{`${project.due} days`}</span>
                 </div>
               </div>
+              
             )
           })}
+          <div className="project-view__preview-projects--card project-view__preview-projects--card--selected">
+              <div className="project-view__preview-projects--new u-centered-div">
+                <Link to="/newProject">
+                  <PlusIcon height={'10rem'} width={'10rem'} fill="white" />
+                </Link>
+              </div>
+          </div>
         </div>
       )
     }
@@ -114,9 +133,13 @@ export default class ProjectView extends Component {
   render() {
     return (
       <div className="project-view">
-        {this.renderSelectedProject()}
-        {this.mapProjectThumbnails()}
+        {(this.state.toggleExpandedProject) && 
+          <ExpandedProject />
+        }
+        {(!this.state.toggleExpandedProject) && this.renderSelectedProject()}
+        {(!this.state.toggleExpandedProject) && this.mapProjectThumbnails()}
       </div>
     )
   }
 }
+export default graphql(userProjectQuery)(ProjectView);

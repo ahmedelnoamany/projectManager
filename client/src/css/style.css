@@ -552,7 +552,7 @@ body {
   .project-view__selected-project {
     grid-column: 1 / 4;
     grid-row: 1 / -1;
-    background-color: #7FC4FD;
+    background-color: #89AAE6;
     padding: 1rem 2rem;
     height: 82rem;
     width: 100%;
@@ -646,7 +646,7 @@ body {
         background-color: #6987C9;
         cursor: pointer; }
       .project-view__preview-projects--card--normal {
-        background-color: rgba(105, 135, 201, 0.2); }
+        background-color: #fff; }
       .project-view__preview-projects--card--selected {
         background-color: #6987C9; }
 

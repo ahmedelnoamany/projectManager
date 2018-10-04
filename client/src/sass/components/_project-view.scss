@@ -11,7 +11,7 @@
   &__selected-project {
     grid-column: 1 / 4;
     grid-row: 1 / -1;
-    background-color: #7FC4FD;
+    background-color: #89AAE6;
     padding: 1rem 2rem;
     height: 82rem;
     width: 100%;
@@ -134,7 +134,7 @@
         cursor: pointer;
       }
       &--normal {
-        background-color: rgba($color-primary-dark, .2);
+        background-color: $color-white;
       }
       &--selected {
         background-color: $color-primary-dark;

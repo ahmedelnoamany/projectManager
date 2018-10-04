@@ -51,13 +51,15 @@ const mutation = new GraphQLObjectType({
         title: { type: GraphQLString },
         dueDate: { type: GraphQLString },
         priority: { type: GraphQLInt },
+        client: { type: GraphQLString },
         ownerID: { type: GraphQLID }
       },
-      resolve(parentValue, { title, dueDate, priority, ownerID }, req) {
+      resolve(parentValue, { title, dueDate, priority, client, ownerID }, req) {
         let project = new Project({
           title,
           dueDate,
           priority,
+          client,
           ownerID
         });
         return project.save();

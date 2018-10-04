@@ -16,6 +16,7 @@ const ProjectType = module.exports = new GraphQLObjectType({
     title: { type: GraphQLString },
     dueDate: { type: GraphQLString },
     priority: { type: GraphQLInt },
+    client: { type: GraphQLString },
     owner: {
       type: require('./user_type'),
       resolve(parentValue, args) {

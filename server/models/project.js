@@ -5,6 +5,7 @@ const ProjectSchema = new Schema({
   title: String,
   dueDate: Date,
   priority: Number,
+  client: String,
   ownerID: String
 });
 
