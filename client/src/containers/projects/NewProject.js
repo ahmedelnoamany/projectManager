@@ -15,12 +15,17 @@ export default class NewProject extends Component {
       projectQuote: false
     }
   }
+  onSubmit(event) {
+    event.preventDefault();
+  }
 
   render() {
     return (
-      <form className="form__new-project">
+      <form 
+        className="form__new-project"
+        onSubmit={this.onSubmit.bind(this)}
+      >
         <div className="form__new-project--left-pane">
-            {/* LEFT */}
             <div className="form__new-project__input-group">
               <label>
                 <span className="u-margin-bottom-small">Name</span>
@@ -48,19 +53,27 @@ export default class NewProject extends Component {
         <div className="form__new-project--center-pane">
           <div style={{width: '80%', margin: '1rem auto'}}>
             <label>
-              <span>Priority</span>
+              <span className="input u-margin-bottom-small">Priority</span>
               <PriorityBar />
             </label>
           </div>
-          <div>
-            <label>
+          <div className="form__new-project--switch-container">
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
               <span>Billing</span>
-              TOGGLE
-            </label>
-            <label>
+              <label className="switch">
+                <input type="checkbox" />
+                <span className="slider"></span>
+                Billing
+              </label>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
               <span>Generate Quote</span>
-              TOGGLE
-            </label>
+              <label className="switch">
+                <input type="checkbox" />
+                <span className="slider"></span>
+                Generate Quote
+              </label>
+            </div>
           </div>
           <div className="form__new-project--nav-options">
             <div>

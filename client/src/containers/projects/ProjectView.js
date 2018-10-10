@@ -15,8 +15,14 @@ class ProjectView extends Component {
     super(props);
     this.state = {
       selected: 0,
-      toggleExpandedProject: false
+      toggleExpandedProject: false,
     }
+  }
+  handleExpandView() {
+    this.setState({ toggleExpandedProject: true });
+  }
+  handleCloseExpandedView() {
+    this.setState({ toggleExpandedProject: false })
   }
   renderSelectedProject() {
     const { loading, user } = this.props.data;
@@ -41,6 +47,7 @@ class ProjectView extends Component {
       let finalDate = projectDueDate.map((item, index) => {
         return index < 4 ? item + ' ' : ''
       });
+
       return (
         <div className="project-view__selected-project">
           <h3 className="project-view__selected-project--title-text">{project.title}</h3>
@@ -54,7 +61,7 @@ class ProjectView extends Component {
               <PriorityBar priority={project.priority} project={project.title} disable={false}/>
             </div>
           </div>
-          <div className="project-view__selected-project--graph-container">
+          <div className="project-view__selected-project--graph-container project-view__selected-project--graph-container--large">
             Pie chart section
           </div>
           <div className="project-view__selected-project--task-container">
@@ -74,7 +81,7 @@ class ProjectView extends Component {
             </div>
             <button 
               className="project-view__selected-project--task-container--expand-btn"
-              onClick={ () => this.setState({ toggleExpandedProject: true })}
+              onClick={ () => this.handleExpandView() }
             >Expand</button>
           </div>
         </div>
@@ -106,7 +113,7 @@ class ProjectView extends Component {
                 className={index === this.state.selected ? "project-view__preview-projects--card project-view__preview-projects--card--selected" : "project-view__preview-projects--card project-view__preview-projects--card--normal"}
                 onClick={() => this.setState({selected: index})}
               >
-                <h4 className="project-view__selected-project--desc-container--main-text">{project.title}</h4>
+                <h4 className="project-view__preview-projects--project-title">{project.title}</h4>
                 <div
                   style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%', paddingLeft: '1rem', paddingRight: '1rem', alignItems: 'end'}}
                 >
@@ -131,10 +138,11 @@ class ProjectView extends Component {
     }
   }
   render() {
+    const { user } = this.props.data
     return (
-      <div className="project-view">
+      <div className={this.state.toggleExpandedProject? "expanded-view" : 'project-view'}>
         {(this.state.toggleExpandedProject) && 
-          <ExpandedProject />
+          <ExpandedProject currentProject={user.projects[this.state.selected]} onCloseExpandedView={() => this.handleCloseExpandedView()} />
         }
         {(!this.state.toggleExpandedProject) && this.renderSelectedProject()}
         {(!this.state.toggleExpandedProject) && this.mapProjectThumbnails()}

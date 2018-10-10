@@ -89,6 +89,21 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
 
+    &--switch-container {
+      width: 50%;
+      justify-self: center;
+      display: flex;
+      flex-direction: column;
+
+      justify-content: space-around;
+
+      span {
+        font-size: 1.4rem;
+        font-weight: 300;
+        font-family: Arial;
+        color: #6987C9;
+      }
+    }
     &--nav-options {
       display: flex;
       justify-content: center;
@@ -104,6 +119,8 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        
 
       }
       span {
@@ -124,8 +141,6 @@
     &--center-pane {
       grid-row: 1 / 7;
       grid-column: 2 / 3;
-
-      background-color: thistle;
 
       display: grid;
       grid-template-rows: repeat(3, 1fr);
