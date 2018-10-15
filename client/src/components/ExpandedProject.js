@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PriorityBar from '../components/PriorityBar';
+import ProjectChat from '../components/ProjectChat';
 
 export default class ExpandedProject extends Component {
   constructor(props) {
@@ -31,7 +32,9 @@ export default class ExpandedProject extends Component {
           Pie chart section
         </div>
       </div>
-      <div className="expanded-project__project-chat">Project Chat</div>
+      <div className="expanded-project__project-chat">
+        <ProjectChat />
+      </div>
       <div className="expanded-project__project-sprints">Project Sprints</div>
       <span onClick={() => this.handleCloseProject()} className="expanded-project__project-exit">
         X

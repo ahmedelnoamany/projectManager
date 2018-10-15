@@ -49,3 +49,88 @@
   }
 
 }
+
+.project-chat {
+  height: 100%;
+  width: 100%;
+  background-color: $color-white;
+ 
+  &__response-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__response-textarea {
+    width: 90%;
+    height: 7rem;
+    padding: 1rem;
+    border: 1px solid #BCE0FD;
+
+    font-weight: 100;
+    font-size: 1.4rem;
+    font-family: Arial;
+    color: #6987C9;
+    resize: none;
+
+    &::placeholder {
+      font-weight: 100;
+      font-size: 1.4rem;
+      font-family: Arial;
+      font-style: italic;
+      color: #6987C9
+    }
+  }
+  &__comments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    height: 100%;
+    width: 100%;
+
+    max-height: 80%;
+    overflow-y: scroll;
+  }
+  &__comment {
+    display: inline-block;
+    width: 85%;
+    height: 20rem;
+
+    background-color: transparent;
+    border: 1px solid #C5D5EA;
+  }
+  &__user-details {
+    margin: 1rem 2rem;
+    width: 50%;
+    height: 3rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, max-content);
+    grid-gap: 1.5rem;
+    &--user-name {
+      font-family: Arial;
+      font-size: 1.4rem;
+      font-weight: 200;
+      color: $color-primary-dark;
+    }
+    &--time-stamp {
+      font-family: Arial;
+      font-size: 1rem;
+      font-weight: 100;
+      color: $color-primary-dark;
+    }
+  }
+  &--comment-text {
+    margin: 1rem 1rem;
+
+    span {
+      line-height: 2rem;
+      font-size: 1.2rem;
+      font-weight: 100;
+      font-family: Arial;
+      color: #6987C9;
+    }
+  }
+}

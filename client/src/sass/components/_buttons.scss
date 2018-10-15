@@ -119,3 +119,46 @@
     }
   }
 }
+.slide-button {
+  &__switch {
+    position: relative;
+    display: inline-block;
+    width: 10rem;
+    height: 5rem;
+
+    input { display: none;}
+  }
+  &__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #C5D5EA;
+    -webkit-transition: .4s;
+    transition: .4s;
+    &:before {
+        position: absolute;
+        content: "";
+        height: 4.2rem;
+        width: 4.5rem;
+        left: 5px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+  }
+  input:checked + &__slider {
+    background-color: #2196F3;
+  }
+  input:focus + &__slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  input:checked + &__slider:before {
+    -webkit-transform: translateX(4.5rem);
+    -ms-transform: translateX(4.5rem);
+    transform: translateX(4.5rem);
+  }
+}

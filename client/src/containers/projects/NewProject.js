@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dropdown from 'react-dropdown';
 import PriorityBar from '../../components/PriorityBar';
+import ProgressBar from '../../components/ProgressBar';
 
 export default class NewProject extends Component {
   constructor(props) {
@@ -51,39 +52,46 @@ export default class NewProject extends Component {
             </div>
         </div>
         <div className="form__new-project--center-pane">
-          <div style={{width: '80%', margin: '1rem auto'}}>
+          <div style={{width: '80%', margin: '2rem auto'}}>
             <label>
-              <span className="input u-margin-bottom-small">Priority</span>
+              <span
+                style={{ 
+                  fontSize: '1.4rem',
+                  fontWeight: 300,
+                  fontFamily: 'Arial',
+                  color: '#6987C9',
+                }}
+              >Priority</span>
               <PriorityBar />
             </label>
           </div>
           <div className="form__new-project--switch-container">
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
               <span>Billing</span>
-              <label className="switch">
+              <label className="slide-button__switch">
                 <input type="checkbox" />
-                <span className="slider"></span>
+                <span className="slide-button__slider"></span>
                 Billing
               </label>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
               <span>Generate Quote</span>
-              <label className="switch">
+              <label className="slide-button__switch">
                 <input type="checkbox" />
-                <span className="slider"></span>
+                <span className="slide-button__slider"></span>
                 Generate Quote
               </label>
             </div>
           </div>
           <div className="form__new-project--nav-options">
             <div>
-              LEFT NAV
+              LEFT NAV----      
             </div>
             <div>
-              CENTER NAV
+              <ProgressBar progress={25} />
             </div>
             <div>
-              RIGHT NAV
+                   ----RIGHT NAV
             </div>
           </div>
         </div>

@@ -49,7 +49,10 @@ class ProjectView extends Component {
       });
 
       return (
-        <div className="project-view__selected-project">
+        <div 
+          className="project-view__selected-project"
+          key={project.id}
+        >
           <h3 className="project-view__selected-project--title-text">{project.title}</h3>
           <div className="project-view__selected-project--desc-container">
             <span className="project-view__selected-project--desc-container--main-text">{project.client}</span>
@@ -108,12 +111,18 @@ class ProjectView extends Component {
       return (
         <div className="project-view__preview-projects">
           {projects.map((project, index) => {
+            console.log('Project being rendered is: ', project);
             return (
               <div 
                 className={index === this.state.selected ? "project-view__preview-projects--card project-view__preview-projects--card--selected" : "project-view__preview-projects--card project-view__preview-projects--card--normal"}
                 onClick={() => this.setState({selected: index})}
+                key={project.id + "-thumb"}
               >
-                <h4 className="project-view__preview-projects--project-title">{project.title}</h4>
+                <h4 
+                  className={`project-view__preview-projects--project-title ${index === this.state.selected ? "project-view__preview-projects--project-title--light" : "project-view__preview-projects--project-title--dark"}`}
+                >
+                  {project.title}
+                </h4>
                 <div
                   style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%', paddingLeft: '1rem', paddingRight: '1rem', alignItems: 'end'}}
                 >

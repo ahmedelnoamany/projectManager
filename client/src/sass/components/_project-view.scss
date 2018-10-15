@@ -102,6 +102,7 @@
         background-color: transparent;
         font: inherit;
         color: $color-white;
+        cursor: pointer;
       }
     }
   }
@@ -120,13 +121,18 @@
     overflow-y: scroll;
 
     &--project-title {
-      color: $color-white;
       margin-bottom: 3rem;
 
       font-size: 1.8rem;
       font-family: Arial;
       font-weight: 100;
       letter-spacing: .1rem;
+      &--dark {
+        color: $color-primary-dark;
+      }
+      &--light {
+        color: $color-white;
+      }
 
     }
     &--new {
@@ -150,6 +156,7 @@
       }
       &--normal {
         background-color: $color-white;
+        border: 1px solid #C5D5EA;
       }
       &--selected {
         background-color: $color-primary-dark;
