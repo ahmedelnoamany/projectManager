@@ -9,7 +9,7 @@
  
   
   display: grid;
-  grid-template-rows: 2rem repeat(5, 1fr) 2rem;
+  grid-template-rows: 2rem repeat(5, max-content) 2rem;
   grid-template-columns: 4rem 1fr 1fr 5rem 1fr 1fr 4rem;
 
   &__project-overview {
@@ -72,7 +72,9 @@
     font-family: Arial;
     color: #6987C9;
     resize: none;
-
+    &:focus {
+      outline: none;
+    }
     &::placeholder {
       font-weight: 100;
       font-size: 1.4rem;
@@ -90,12 +92,12 @@
     height: 100%;
     width: 100%;
 
-    max-height: 80%;
+    max-height: 70%;
     overflow-y: scroll;
   }
   &__comment {
     display: inline-block;
-    width: 85%;
+    width: 90%;
     height: 20rem;
 
     background-color: transparent;
@@ -127,10 +129,40 @@
 
     span {
       line-height: 2rem;
-      font-size: 1.2rem;
-      font-weight: 100;
+      font-size: 1.6rem;
+      font-weight: lighter;
       font-family: Arial;
       color: #6987C9;
     }
+  }
+}
+.sprint-manager {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__sprints-container {
+    width: 95%;
+    height: 55rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    overflow: hidden;
+  }
+  &__sprint {
+    width: 100%;
+  
+    background-color: #EAF0F8;
+    padding: 0 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
   }
 }

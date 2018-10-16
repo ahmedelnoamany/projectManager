@@ -60,6 +60,19 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  &__chat-btn {
+    height: 7rem;
+    width: 5rem;
+    background-color: #C5D5EA;
+    border: none;
+    color: white;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: #6987C9;
+    }
+  }
   &__login {
     background-color: none;
     color: white;
@@ -162,3 +175,5 @@
     transform: translateX(4.5rem);
   }
 }
+
+

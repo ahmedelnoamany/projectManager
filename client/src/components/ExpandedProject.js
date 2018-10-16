@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PriorityBar from '../components/PriorityBar';
 import ProjectChat from '../components/ProjectChat';
+import SprintManager from '../components/SprintManager';
 
 export default class ExpandedProject extends Component {
   constructor(props) {
@@ -35,7 +36,9 @@ export default class ExpandedProject extends Component {
       <div className="expanded-project__project-chat">
         <ProjectChat />
       </div>
-      <div className="expanded-project__project-sprints">Project Sprints</div>
+      <div className="expanded-project__project-sprints">
+        <SprintManager />
+      </div>
       <span onClick={() => this.handleCloseProject()} className="expanded-project__project-exit">
         X
       </span>
